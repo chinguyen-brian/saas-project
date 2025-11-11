@@ -1,7 +1,5 @@
-import axios, {
-  AxiosError,
-  AxiosRequestConfig,
-} from 'axios';
+import { authService } from './../api/auth';
+import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
@@ -25,18 +23,11 @@ async function refreshAccessToken(): Promise<string | null> {
     sessionStorage.setItem('access_token', newAccessToken);
     return newAccessToken;
   } catch (err) {
-    console.log(err)
-    logout();
+    console.log(err);
+    await authService.logout();
     return null;
   }
 }
-
-// ----------------- Logout function -----------------
-export function logout() {
-  sessionStorage.removeItem('access_token');
-  window.location.href = '/login';
-}
-
 
 // ----------------- Handle 401 + refresh -----------------
 async function handle401(err: AxiosError & { config: AxiosRequestConfig }) {

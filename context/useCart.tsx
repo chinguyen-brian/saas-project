@@ -19,10 +19,14 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<Cart>(() => {
+  const [cart, setCart] = useState<Cart>({ items: [], total: 0 });
+
+  useEffect(() => {
     const stored = localStorage.getItem('cart');
-    return stored ? JSON.parse(stored) : { items: [], total: 0 };
-  });
+    if (stored) {
+      setTimeout(() => setCart(JSON.parse(stored)), 0);
+    }
+  }, []);
 
   // helper lưu cart vào state + localStorage
   const saveCart = (newCart: Cart) => {
