@@ -1,5 +1,5 @@
 'use client';
-import { Links } from '../header/Navigation';
+
 interface SidebarProps {
   email: string;
   open: boolean;
@@ -7,12 +7,12 @@ interface SidebarProps {
   logout: () => void;
 }
 
-const Sidebar = ({ email, open, onClose, logout }: SidebarProps) => {
+const DashboardSidebar = ({ email, open, onClose, logout }: SidebarProps) => {
   return (
     <>
       <aside
         className={`
-          md:hidden fixed top-0 left-0 h-full bg-white border-r border-gray-200 shadow-md
+          fixed top-0 left-0 h-full bg-white border-r border-gray-200 shadow-md
           w-64 p-4 flex flex-col justify-between
           transform transition-transform duration-300
           md:translate-x-0
@@ -25,15 +25,15 @@ const Sidebar = ({ email, open, onClose, logout }: SidebarProps) => {
         <div className="flex-1">
           <p className="text-gray-700 mb-2 md:block hidden">Hello, {email}</p>
           <nav className="space-y-2">
-            {Links.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                className="block py-2 px-3 rounded hover:bg-gray-100"
-              >
-                {link.name}
-              </a>
-            ))}
+            <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
+              Dashboard
+            </a>
+            <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
+              Products
+            </a>
+            <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
+              Orders
+            </a>
           </nav>
         </div>
 
@@ -56,4 +56,4 @@ const Sidebar = ({ email, open, onClose, logout }: SidebarProps) => {
   );
 };
 
-export default Sidebar;
+export default DashboardSidebar;

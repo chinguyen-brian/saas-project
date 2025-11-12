@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { CartProvider } from '../../context/useCart';
+import { AuthProvider } from '../../context/useAuth';
+import UserLayout from '../../components/layout/userLayout';
 
 export const metadata: Metadata = {
   title: 'SaaS App - Home',
@@ -13,7 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <CartProvider>{children}</CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <UserLayout>{children}</UserLayout>
+        </CartProvider>
+      </AuthProvider>
     </>
   );
 }

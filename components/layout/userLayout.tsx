@@ -1,10 +1,10 @@
 'use client';
 import { useAuth } from '../../context/useAuth';
-import DashboardHeader from '../header/DashboardHeader';
+import Header from '../header/Header';
 import { useState } from 'react';
-import DashboardSidebar from '../sidebar/DashboardSidebar';
+import Sidebar from '../sidebar/Sidebar';
 
-export default function DashboardLayout({
+export default function UserLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -15,7 +15,7 @@ export default function DashboardLayout({
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <DashboardSidebar
+      <Sidebar
         email={user?.email || ''}
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
@@ -25,7 +25,7 @@ export default function DashboardLayout({
       {/* Main content area */}
       <div className="flex-1 flex flex-col md:pl-64">
         {/* Header */}
-        <DashboardHeader
+        <Header
           email={user?.email || ''}
           logout={logout}
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
