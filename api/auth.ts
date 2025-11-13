@@ -8,7 +8,7 @@ const login = async (email: string, password: string): Promise<User | null> => {
 };
 
 const me = async (): Promise<User> => {
-  const res = await axiosPrivate.get('/auth/me');
+  const res = await axiosPrivate.get('/auth/me', { _skipRedirect401: true });
   return res.data;
 };
 
@@ -19,7 +19,7 @@ const logout = async () => {
     console.error('Failed to logout on server:', err);
   } finally {
     sessionStorage.removeItem('access_token');
-    window.location.href = '/login';
+    location.replace("/login")
   }
 };
 

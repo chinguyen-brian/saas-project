@@ -9,9 +9,9 @@ export default function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { user, logout } = useAuth();
+  const { user, logout, loading } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  if (loading) return null;
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -23,11 +23,10 @@ export default function DashboardLayout({
       />
 
       {/* Main content area */}
-      <div className="flex-1 flex flex-col md:pl-64">
+      <div className="flex-1 flex flex-col">
         {/* Header */}
         <DashboardHeader
           email={user?.email || ''}
-          logout={logout}
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
 

@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "name": "Samsung Galaxy S24",
+        "price": 1099,
+        "salePrice": 899,
+        "image":"/img/products/galaxy-s24.jpg",
+        "tag": "50% OFF"
+    },
+    {
+        "id": "2",
+        "name": "Samsung Galaxy S24",
+        "price": 1099,
+        "salePrice": 899,
+        "image":"/img/products/galaxy-s24.jpg",
+        "tag": "50% OFF"
+    },
+    {
+        "id": "3",
+        "name": "Samsung Galaxy S24",
+        "price": 1099,
+        "salePrice": 899,
+        "image":"/img/products/galaxy-s24.jpg",
+        "tag": "50% OFF"
+    },
+    {
+        "id": "4",
+        "name": "Samsung Galaxy S24",
+        "price": 1099,
+        "salePrice": 899,
+        "image":"/img/products/galaxy-s24.jpg",
+        "tag": "50% OFF"
+    },
+    {
+        "id": "5",
+        "name": "Samsung Galaxy S24",
+        "price": 1099,
+        "salePrice": 899,
+        "image":"/img/products/galaxy-s24.jpg",
+        "tag": "SALE"
+    },
+    {
+        "id": "6",
+        "name": "Samsung Galaxy S24",
+        "price": 1099,
+        "salePrice": 899,
+        "image":"/img/products/galaxy-s24.jpg",
+        "tag": "SALE"
+    }
+]

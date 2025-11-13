@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 interface ButtonProps {
   children: ReactNode;
   onClick?: () => void;
-  color?: 'outline' | 'primary';
+  color?: 'outline' | 'primary' | 'warning';
   type?: 'button' | 'reset' | 'submit';
   className?: string;
   disabled?: boolean;
@@ -21,7 +21,7 @@ export default function Button({
   const colorClass =
     color == 'primary'
       ? 'text-white bg-blue-400 hover:bg-blue-500 active:bg-blue-600'
-      : 'outline-1 bg-white text-blue-400 outline-blue-400 hover:outline-2 hover:outline-blue-500 active:outline-blue-600 ';
+      : color == 'warning' ? 'text-white bg-red-400 hover:bg-red-500 active:bg-red-600' : 'outline-1 bg-white text-blue-400 outline-blue-400 hover:outline-2 hover:outline-blue-500 active:outline-blue-600 ';
 
     const disabledClass = "text-white bg-blue-200";
   return (

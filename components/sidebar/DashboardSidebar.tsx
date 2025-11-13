@@ -1,5 +1,7 @@
 'use client';
 
+import Button from '../ui/Button';
+
 interface SidebarProps {
   email: string;
   open: boolean;
@@ -21,28 +23,25 @@ const DashboardSidebar = ({ email, open, onClose, logout }: SidebarProps) => {
           z-40
         `}
       >
-        <div className="text-2xl font-bold mb-6 md:block hidden">MyLogo</div>
-        <div className="flex-1">
-          <p className="text-gray-700 mb-2 md:block hidden">Hello, {email}</p>
-          <nav className="space-y-2">
-            <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
-              Dashboard
-            </a>
-            <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
-              Products
-            </a>
-            <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
-              Orders
-            </a>
-          </nav>
+        <div className="pt-16">
+          <div className="flex-1">
+            <p className="text-gray-700 mb-2 md:block hidden">Hello, {email}</p>
+            <nav className="space-y-2">
+              <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
+                Dashboard
+              </a>
+              <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
+                Products
+              </a>
+              <a href="#" className="block py-2 px-3 rounded hover:bg-gray-100">
+                Orders
+              </a>
+            </nav>
+            <Button onClick={logout} color="warning" className="px-3 py-1">
+              Logout
+            </Button>
+          </div>
         </div>
-
-        <button
-          className="w-full py-2 px-3 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-          onClick={logout}
-        >
-          Logout
-        </button>
       </aside>
 
       {/* Overlay */}

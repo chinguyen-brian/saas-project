@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { AuthProvider } from '../../context/useAuth';
 import DashboardLayout from '../../components/layout/dashboardLayout';
+import { ProtectedRoute } from '../../components/ProtectedRoute';
 
 export const metadata: Metadata = {
   title: 'SaaS App - Dashboard',
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <>
       <AuthProvider>
-        <DashboardLayout>{children}</DashboardLayout>
+        <ProtectedRoute>
+          <DashboardLayout>{children}</DashboardLayout>
+        </ProtectedRoute>
       </AuthProvider>
     </>
   );

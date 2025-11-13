@@ -4,6 +4,7 @@ import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 declare module 'axios' {
   export interface AxiosRequestConfig {
     _retry?: boolean;
+    _skipRedirect401?: boolean;
   }
 }
 
@@ -24,7 +25,6 @@ async function refreshAccessToken(): Promise<string | null> {
     return newAccessToken;
   } catch (err) {
     console.log(err);
-    await authService.logout();
     return null;
   }
 }
@@ -38,6 +38,10 @@ async function handle401(err: AxiosError & { config: AxiosRequestConfig }) {
     if (newToken) {
       originalRequest.headers?.set?.('Authorization', `Bearer ${newToken}`);
       return axiosPrivate(originalRequest);
+    }else{
+      if (!originalRequest._skipRedirect401) {
+        await authService.logout();
+      }
     }
   }
   return Promise.reject(err);

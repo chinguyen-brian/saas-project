@@ -7,12 +7,12 @@ import Link from 'next/link';
 
 interface HeaderProps {
   email: string;
-  logout: () => void;
   onMenuClick: () => void;
 }
 
-const Header = ({ email, onMenuClick, logout }: HeaderProps) => {
+const Header = ({ email, onMenuClick }: HeaderProps) => {
   const { cart } = useCart();
+  console.log(email);
   return (
     <header className="fixed top-0 left-0 w-full h-16 bg-white border-b border-gray-200 shadow-sm flex items-center px-4 z-50">
       <div className="flex justify-between items-center w-full">
@@ -59,14 +59,7 @@ const Header = ({ email, onMenuClick, logout }: HeaderProps) => {
             </Link>
           ) : (
             <>
-              <span className="hidden md:inline text-gray-700">{email}</span>
-
-              <button
-                onClick={logout}
-                className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
-              >
-                Logout
-              </button>
+              <span className="inline text-gray-700 text-sm">{email}</span>
             </>
           )}
         </div>

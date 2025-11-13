@@ -23,11 +23,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    authService
-      .me()
-      .then(setUser)
-      .catch(() => setUser(null))
-      .finally(() => setLoading(false));
+    const fetchUser = async () => {
+      try {
+        const me = await authService.me();
+        setUser(me);
+      } catch {
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchUser();
   }, []);
 
   const login = async (email: string, password: string) => {
@@ -35,9 +41,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(loggedInUser);
   };
 
-  const logout = () => {
-    authService.logout();
-    setUser(null);
+  const logout = async () => {
+    await authService.logout();
   };
 
   return (

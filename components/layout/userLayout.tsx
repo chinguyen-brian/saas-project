@@ -9,9 +9,10 @@ export default function UserLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { user, logout } = useAuth();
+  const { user, logout, loading } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  if (loading) return null;
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -23,16 +24,15 @@ export default function UserLayout({
       />
 
       {/* Main content area */}
-      <div className="flex-1 flex flex-col md:pl-64">
+      <div className="flex-1 flex flex-col md:px-16">
         {/* Header */}
         <Header
           email={user?.email || ''}
-          logout={logout}
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
 
         {/* Main content */}
-        <main className="pt-16 p-4">{children}</main>
+        <main className="pt-16 p-4 w-full max-w-7xl mx-auto">{children}</main>
       </div>
     </div>
   );
