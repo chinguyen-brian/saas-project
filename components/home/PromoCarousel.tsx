@@ -41,7 +41,7 @@ export default function PromoCarousel({
     >
       {/* Carousel container 19:6 ratio */}
       <div
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden rounded-2xl"
         style={{ paddingTop: '25%' }}
       >
         <div
@@ -69,7 +69,7 @@ export default function PromoCarousel({
       <button
         aria-label="Previous"
         onClick={goPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow focus:outline-none"
+        className="absolute -left-3 md:-left-9 top-1/2 -translate-y-1/2 bg-blue-50 hover:bg-white text-blue-400 p-2 md:p-6 rounded-full shadow focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ export default function PromoCarousel({
       <button
         aria-label="Next"
         onClick={goNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow focus:outline-none"
+        className="absolute -right-3 md:-right-9 top-1/2 -translate-y-1/2 bg-blue-50 hover:bg-white text-blue-400 p-2 md:p-6 rounded-full shadow focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

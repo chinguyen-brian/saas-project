@@ -2,38 +2,12 @@ import ListItem from '../../components/common/ListItem';
 import PromoCarousel from '../../components/home/PromoCarousel';
 import FeatureTitle from '../../components/ui/FeatureTitle';
 import mockProducts from '@/mock/productList.json';
+import mockCategories from '@/mock/category.json';
 import { Category, Product } from '../../types/product';
 import ProductCard from '../../components/common/item/ProductCard';
 import CategoryCard from '../../components/common/item/CategoryCard';
 import AccessoryItem from '../../components/common/item/AccessoryItem';
 import NewsCard from '../../components/common/item/NewsItem';
-
-const categories = [
-  {
-    image: '/img/products/galaxy-s24.jpg',
-    name: 'Smartphone',
-  },
-  {
-    image: '/img/products/tablet.jpg',
-    name: 'Tablet',
-  },
-  {
-    image: '/img/products/laptop.jpg',
-    name: 'Laptop',
-  },
-  {
-    image: '/img/products/watch.jpeg',
-    name: 'Wearable',
-  },
-  {
-    image: '/img/products/earpods.jpg',
-    name: 'Sounds',
-  },
-  {
-    image: '/img/products/accessories.jpg',
-    name: 'Accessories',
-  },
-];
 
 const news = [
   {
@@ -56,6 +30,7 @@ const news = [
 
 const Home = () => {
   const products = mockProducts as Product[];
+  const categories = mockCategories as Category[];
   return (
     <div className="flex flex-col space-y-10 py-4">
       <PromoCarousel />

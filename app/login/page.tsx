@@ -92,7 +92,7 @@ const Login = () => {
               label="Remember me"
             />
           </div>
-          <Button type="submit" color="primary" disabled={isSubmitting}>
+          <Button type="submit" color="primary" className='w-full' disabled={isSubmitting}>
             Login
           </Button>
         </form>

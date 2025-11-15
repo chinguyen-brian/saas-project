@@ -1,0 +1,26 @@
+[
+  {
+    "image": "/img/products/galaxy-s24.jpg",
+    "name": "Smartphone"
+  },
+  {
+    "image": "/img/products/tablet.jpg",
+    "name": "Tablet"
+  },
+  {
+    "image": "/img/products/laptop.jpg",
+    "name": "Laptop"
+  },
+  {
+    "image": "/img/products/watch.jpeg",
+    "name": "Wearable"
+  },
+  {
+    "image": "/img/products/earpods.jpg",
+    "name": "Sounds"
+  },
+  {
+    "image": "/img/products/accessories.jpg",
+    "name": "Accessories"
+  }
+]
